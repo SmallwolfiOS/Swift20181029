@@ -55,6 +55,7 @@ class ViewController: UIViewController {
     @objc func buttonClick() {
         print("点击了按钮");
         let vc = ViewController1();
+        vc.littleStr = "这是第二个页面";
         self.present(vc, animated: true, completion: nil);()
     }
     @objc func button1Click(btn:UIButton){

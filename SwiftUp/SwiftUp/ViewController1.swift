@@ -9,17 +9,16 @@
 import UIKit
 
 class ViewController1: UIViewController {
-
+    var littleStr:String = "";
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         // 这是一个model出来的页面
-        
+        print(self.littleStr);
         self.view.backgroundColor = UIColor.white;
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction));
         self.view.addGestureRecognizer(tap);
-        self.view .addGestureRecognizer(tap)
     }
     @objc func tapAction(){
         self.dismiss(animated: true, completion: nil);
