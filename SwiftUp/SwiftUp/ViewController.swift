@@ -38,9 +38,23 @@ class ViewController: UIViewController {
         btn.addTarget(self, action:#selector(buttonClick) , for: UIControl.Event.touchUpInside);
         self.view.addSubview(btn);
         
+        let btn1 = UIButton(frame: CGRect.init(x: 30, y:270, width: SCREEN_WIDTH-60, height:  50));
+        btn1.backgroundColor = UIColor.blue;
+        btn1.setTitle("按钮的标题", for: UIControl.State.normal);
+        btn1.tag = 100;
+        btn1.addTarget(self, action:#selector(button1Click) , for: .touchUpInside);
+        self.view.addSubview(btn1);
+        
     }
     @objc func buttonClick() {
         print("点击了按钮");
     }
+    @objc func button1Click(btn:UIButton){
+        print(btn.tag);
+        print("这是点击了带参数的button");
+        print("这是点击了带参数的button,butto的tag是\(btn.tag)",btn.tag);//哈哈哈，这样也可以，居然可以打印
+        //这是点击了带参数的button,butto的tag是100 100
+    }
 }
+
 
