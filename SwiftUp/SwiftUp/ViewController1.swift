@@ -7,7 +7,7 @@
 //
 
 import UIKit
-protocol Vc1Delegate {
+protocol Vc1Delegate:class {//添加class是为了让代理变weak
     func doWhatIWhatYouDo(text:String)
 }
 class ViewController1: UIViewController {

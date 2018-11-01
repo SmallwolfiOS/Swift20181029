@@ -7,7 +7,7 @@
 //
 
 import UIKit
-protocol Vc2Protocol {
+protocol Vc2Protocol:class {//这里，我们必须让协议继承:class，从而使用一个类协议将代理属性标记为weak。
     func protocolFunction(text:String,_ unNamed:String);
 }
 
@@ -18,24 +18,26 @@ class ViewController2: UIViewController {
 
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white;
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction));
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction))
         self.view.addGestureRecognizer(tap);
-        self.initButtons(num: 6);
+        self.initButtons(num: 6)
         
     }
     
     @objc func tapAction(tap:UITapGestureRecognizer) -> Void {
-        self.delegate?.protocolFunction(text: "这是有名字的参数", "这是没有名字的参数，屌不屌");
+        self.delegate?.protocolFunction(text: "这是有名字的参数", "这是没有名字的参数，屌不屌")
     }
 
     
     func initButtons(num:Int) -> Void {
-        for i in 0...num{
-            let btn = UIButton.init(frame: CGRect.init(x: 30, y: 40 + i * 80, width: Int(SCREEN_WIDTH - 60), height: 50));
+        for i in 0..<num{
+            let btn = UIButton.init(frame: CGRect.init(x: 30, y: 34 + i * 80, width: Int(SCREEN_WIDTH - 60), height: 50));
             btn.backgroundColor = UIColor.blue;
             btn.tag = i;
-            btn.addTarget(self, action: #selector(btnClick), for: UIControl.Event.touchUpInside);
-            self.view .addSubview(btn);
+            btn.setTitle("这是创建的第\(i)个按钮", for: UIControl.State.normal)
+            btn.setTitleColor(UIColor.white, for: UIControl.State.normal)
+            btn.addTarget(self, action: #selector(btnClick), for: UIControl.Event.touchUpInside)
+            self.view .addSubview(btn)
         }
     }
     @objc func btnClick(btn:UIButton) -> Void {
