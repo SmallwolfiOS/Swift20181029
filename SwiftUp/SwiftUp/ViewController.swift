@@ -12,9 +12,12 @@ import UIKit
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 // 屏幕的高
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
-class ViewController: UIViewController ,Vc1Delegate{
+class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
     func doWhatIWhatYouDo(text: String) {
         print("到这里，已经执行了代理方法\(text)" );
+    }
+    func protocolFunction(text: String, _ unNamed: String) {
+        print("到这里，已经执行了VCC2的代理方法\(text)  没有名字的参数\(unNamed)" );
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +69,12 @@ class ViewController: UIViewController ,Vc1Delegate{
         print("这是点击了带参数的button");
         print("这是点击了带参数的button,butto的tag是\(btn.tag)",btn.tag);//哈哈哈，这样也可以，居然可以打印
         //这是点击了带参数的button,butto的tag是100 100
+        
+        let vc = ViewController2();
+        vc.delegate = self;
+        self.present(vc, animated: true, completion: nil);()
+        
+        
     }
     func initImageView() {
         let imageView = UIImageView.init(frame: CGRect.init(x: 30, y: 360, width: SCREEN_WIDTH-60, height: SCREEN_WIDTH-60));
