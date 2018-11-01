@@ -12,7 +12,11 @@ import UIKit
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 // 屏幕的高
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
-class ViewController: UIViewController {
+class ViewController: UIViewController ,Vc1Delegate{
+    func doWhatIWhatYouDo() {
+        print("到这里，已经执行了代理方法");
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +60,7 @@ class ViewController: UIViewController {
         print("点击了按钮");
         let vc = ViewController1();
         vc.littleStr = "这是第二个页面";
+        vc.delegate = self;
         self.present(vc, animated: true, completion: nil);()
     }
     @objc func button1Click(btn:UIButton){

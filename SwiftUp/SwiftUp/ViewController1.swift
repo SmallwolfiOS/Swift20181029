@@ -7,8 +7,11 @@
 //
 
 import UIKit
-
+protocol Vc1Delegate {
+    func doWhatIWhatYouDo()
+}
 class ViewController1: UIViewController {
+    var delegate : Vc1Delegate?;
     var littleStr:String = "";
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,7 @@ class ViewController1: UIViewController {
         self.view.addGestureRecognizer(tap);
     }
     @objc func tapAction(){
+        self.delegate?.doWhatIWhatYouDo();
         self.dismiss(animated: true, completion: nil);
     }
 
