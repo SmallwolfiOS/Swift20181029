@@ -13,11 +13,9 @@ let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 // 屏幕的高
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 class ViewController: UIViewController ,Vc1Delegate{
-    func doWhatIWhatYouDo() {
-        print("到这里，已经执行了代理方法");
+    func doWhatIWhatYouDo(text: String) {
+        print("到这里，已经执行了代理方法\(text)" );
     }
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

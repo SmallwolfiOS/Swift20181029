@@ -8,7 +8,7 @@
 
 import UIKit
 protocol Vc1Delegate {
-    func doWhatIWhatYouDo()
+    func doWhatIWhatYouDo(text:String)
 }
 class ViewController1: UIViewController {
     var delegate : Vc1Delegate?;
@@ -24,7 +24,7 @@ class ViewController1: UIViewController {
         self.view.addGestureRecognizer(tap);
     }
     @objc func tapAction(){
-        self.delegate?.doWhatIWhatYouDo();
+        self.delegate?.doWhatIWhatYouDo(text:"这就是 传入的有名字的参数");
         self.dismiss(animated: true, completion: nil);
     }
 
