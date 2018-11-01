@@ -15,7 +15,7 @@ typealias funcBlock = ()->()
 typealias funcBlockA = (Int,Int)->String
 
 
-class ViewController2: UIViewController {
+class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelegate {
     var delegate :Vc2Protocol?;
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class ViewController2: UIViewController {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction))
         self.view.addGestureRecognizer(tap);
         self.initButtons(num: 1)
-        
+        self.initTableView()
     }
     
     @objc func tapAction(tap:UITapGestureRecognizer) -> Void {
@@ -69,11 +69,30 @@ class ViewController2: UIViewController {
     func initTableView() -> Void {
         let tableView = UITableView.init(frame: CGRect.init(x: 30, y: 100, width: SCREEN_WIDTH - 60, height: SCREEN_WIDTH - 100))
         tableView.backgroundColor = UIColor.lightGray;
-//        tableView.delegate = self;
-        
+        tableView.delegate = self as UITableViewDelegate;
+        tableView.dataSource = self as UITableViewDataSource
+        tableView .register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifer")
+        self.view.addSubview(tableView)
     }
     
-    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let identifier = "cellIdentifer"
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        
+        
+        cell.textLabel?.text = "这就是第\(indexPath.row)个cell"
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+        return cell;
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     
     
     
