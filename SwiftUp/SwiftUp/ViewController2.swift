@@ -11,16 +11,22 @@ protocol Vc2Protocol:class {//这里，我们必须让协议继承:class，从�
     func protocolFunction(text:String,_ unNamed:String);
 }
 
+typealias funcBlock = ()->()
+typealias funcBlockA = (Int,Int)->String
+
+
 class ViewController2: UIViewController {
     var delegate :Vc2Protocol?;
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white;
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction))
         self.view.addGestureRecognizer(tap);
-        self.initButtons(num: 6)
+        self.initButtons(num: 1)
         
     }
     
@@ -60,7 +66,12 @@ class ViewController2: UIViewController {
     //这样使得遍历数组能写的更加简洁优雅
     }*/
 
-    
+    func initTableView() -> Void {
+        let tableView = UITableView.init(frame: CGRect.init(x: 30, y: 100, width: SCREEN_WIDTH - 60, height: SCREEN_WIDTH - 100))
+        tableView.backgroundColor = UIColor.lightGray;
+//        tableView.delegate = self;
+        
+    }
     
     
     
