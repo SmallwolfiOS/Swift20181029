@@ -93,7 +93,9 @@ class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelega
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("哇塞，你居然点击了第\(indexPath.row)个cell")
+    }
     
     
     
