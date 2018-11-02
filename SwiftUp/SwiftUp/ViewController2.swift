@@ -16,7 +16,8 @@ typealias funcBlockA = (Int,Int)->String
 
 
 class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelegate {
-    var delegate :Vc2Protocol?;
+    var delegate :Vc2Protocol?
+    var dataSource:NSMutableArray = ["iOS","安卓","java","phyton","swift","Oojective-C","C++","linux","PHP","H5","JavaScript","C"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,8 +25,8 @@ class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelega
 
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white;
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction))
-        self.view.addGestureRecognizer(tap);
+//        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction))
+//        self.view.addGestureRecognizer(tap);
         self.initButtons(num: 1)
         self.initTableView()
     }
@@ -79,14 +80,14 @@ class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelega
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataSource.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "cellIdentifer"
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
-        
-        cell.textLabel?.text = "这就是第\(indexPath.row)个cell"
+        cell.textLabel?.text = dataSource.object(at: indexPath.row) as?String
+//        cell.textLabel?.text = "这就是第\(indexPath.row)个cell"
         cell.selectionStyle = UITableViewCell.SelectionStyle.none;
         return cell;
     }
