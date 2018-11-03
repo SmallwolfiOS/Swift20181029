@@ -17,6 +17,7 @@ typealias funcBlockA = (Int,Int)->String
 
 class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelegate {
     var delegate :Vc2Protocol?
+    var tableView:UITableView?
     var dataSource:NSMutableArray = ["iOS","安卓","java","phyton","swift","Oojective-C","C++","linux","PHP","H5","JavaScript","C"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,7 @@ class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelega
     }
     @objc func btnClick(btn:UIButton) -> Void {
         print(btn.tag);
+        self.tableView?.selectRow(at:NSIndexPath.init(row: 0, section: 0) as IndexPath, animated: true, scrollPosition: UITableView.ScrollPosition.top)
     }
     
     /*   这是在swift 4.0新增加的方法
@@ -73,6 +75,7 @@ class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelega
         tableView.delegate = self as UITableViewDelegate;
         tableView.dataSource = self as UITableViewDataSource
         tableView .register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifer")
+        self.tableView = tableView;
         self.view.addSubview(tableView)
     }
     
