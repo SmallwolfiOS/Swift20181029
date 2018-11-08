@@ -79,6 +79,7 @@ class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelega
         self.view.addSubview(tableView)
     }
     
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -99,6 +100,8 @@ class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelega
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("哇塞，你居然点击了第\(indexPath.row)个cell")
+        let vc = ViewController3()
+        self.present(vc, animated: true, completion: nil)
     }
     
     
