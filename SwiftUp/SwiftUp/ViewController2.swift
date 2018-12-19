@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+
 protocol Vc2Protocol:class {//这里，我们必须让协议继承:class，从而使用一个类协议将代理属性标记为weak。
     func protocolFunction(text:String,_ unNamed:String);
 }
@@ -19,6 +21,8 @@ class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelega
     var delegate :Vc2Protocol?
     var tableView:UITableView?
     var dataSource:NSMutableArray = ["iOS","安卓","java","phyton","swift","Oojective-C","C++","linux","PHP","H5","JavaScript","C"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +34,10 @@ class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelega
 //        self.view.addGestureRecognizer(tap);
         self.initButtons(num: 1)
         self.initTableView()
+        self.tableView?.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            print("刷新了数据")
+        });
+        self.tableView?.mj_header .beginRefreshing();
     }
     
     @objc func tapAction(tap:UITapGestureRecognizer) -> Void {
