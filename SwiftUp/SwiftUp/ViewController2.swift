@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+import MJRefresh
 protocol Vc2Protocol:class {//这里，我们必须让协议继承:class，从而使用一个类协议将代理属性标记为weak。
     func protocolFunction(text:String,_ unNamed:String);
 }
@@ -34,10 +34,17 @@ class ViewController2: UIViewController ,UITableViewDataSource,UITableViewDelega
 //        self.view.addGestureRecognizer(tap);
         self.initButtons(num: 1)
         self.initTableView()
+        weak var weakSelf = self
         self.tableView?.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
-            print("刷新了数据")
-        });
-        self.tableView?.mj_header .beginRefreshing();
+            print("刷新了数据");
+            weakSelf?.tableView?.mj_header.endRefreshing();
+        })
+        
+        self.tableView?.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
+            print("上拉刷新了数据");
+            weakSelf?.tableView?.mj_footer.endRefreshing();
+        })
+        
     }
     
     @objc func tapAction(tap:UITapGestureRecognizer) -> Void {
