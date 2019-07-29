@@ -22,14 +22,65 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print(Int8.max);
+        print(Int16.max);
         
+        initSubView();
+        setupButton();
+        initImageView();
         
-        self.initSubView();
-        self.setupButton();
-        self.initImageView();
+        normalTest()
+        
         
     }
-
+    private func normalTest(){
+        let laugh = "哈哈哈"
+        let i :Int = 20
+        print("\(laugh) 这样的笑\(i)次")
+        
+        var optionalInteger : Int?
+        optionalInteger = 42
+        print("optionalInteger的值是\(optionalInteger!)")
+        
+        var myString :String?
+        myString = "Hello Swift!"
+        if myString != nil{
+            print(myString as Any)
+        }else{
+            print("myString 的值是 nil")
+        }
+        
+        var string :String!
+        string = "Hello Swift!"
+        if string != nil{
+            print(string)
+        }else{
+            print("string 的值是 nil")
+        }
+        var num :Int = 3;
+        num += 1
+        print("最后的结果是\(num)")
+        
+        let str = ""
+        print(str.isEmpty ?"str 居然是空的":"非空")
+        print("字符串的长度为\(str.count)")
+        
+        if myString!.contains("Hello"){
+            print("包含hello")
+        }else{
+            print("不包含hello")
+        }
+        
+        
+        let swiftString = "hello swift"
+        let arr = swiftString.components(separatedBy: " ");
+        print(arr)
+        print(swiftString[...(swiftString.index(swiftString.startIndex, offsetBy: 3))])
+        
+        
+        
+    }
+    
     private func initSubView() {
         let view :UIView = UIView(frame:CGRect.init(x: 20, y: 100, width: SCREEN_WIDTH, height: SCREEN_HEIGHT));
         view.frame = CGRect.init(x: 30, y: 120, width: SCREEN_WIDTH-60, height: 50);
