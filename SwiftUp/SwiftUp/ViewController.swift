@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+public func P(x:String){print(x)}
 // 屏幕的宽
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 // 屏幕的高
@@ -77,6 +77,9 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         print(arr)
         print(swiftString[...(swiftString.index(swiftString.startIndex, offsetBy: 3))])
         
+        print(swiftString.prefix(3))
+        
+        P(x: String(swiftString.suffix(3)))
         
         
     }
