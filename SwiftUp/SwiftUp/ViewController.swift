@@ -151,7 +151,10 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         let titleView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 136, height: 44))
         titleView.backgroundColor = UIColor.red
         self.navigationItem.titleView = titleView
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "right", style: UIBarButtonItem.Style.plain, target: self, action:#selector(rightItemClick))
+    }
+    @objc func rightItemClick(){
+        print("点击了右上角的按钮")
     }
     private func initSubView() {
         let view :UIView = UIView(frame:CGRect.init(x: 20, y: 100, width: SCREEN_WIDTH, height: SCREEN_HEIGHT));
