@@ -1,16 +1,20 @@
 PODS:
   - MJRefresh (3.1.15.6)
+  - SnapKit (5.0.0)
 
 DEPENDENCIES:
   - MJRefresh
+  - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - MJRefresh
+    - SnapKit
 
 SPEC CHECKSUMS:
   MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: c522db5dda10f2dcf4196b6f73b8d2283fa3f305
+PODFILE CHECKSUM: 02a1a3c7c10e5bbedddd5e209afa1cba2d087573
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.7.2

@@ -25,6 +25,7 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         print(Int8.max);
         print(Int16.max);
         
+        initNavBar()
         initSubView();
         setupButton();
         initImageView();
@@ -80,10 +81,78 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         print(swiftString.prefix(3))
         
         P(x: String(swiftString.suffix(3)))
+        var mutableString:String = "这是一个可变字符串，可以改变的那种"
+        mutableString = mutableString.replacingOccurrences(of: "，", with: " --this is insert character---")
         
+        print(mutableString)
+        
+        let stringA = """
+                        关关雎鸠，
+                        在河之洲，
+                        窈窕淑女，
+                        君子好逑，
+                      """
+        print(stringA)
+    
+        let stringB = """
+    予观夫巴陵胜状，在洞庭一湖。衔远山，吞长江，浩浩汤汤，横无际涯；朝晖夕阴，气象万千。此则岳阳楼之大观也，前人之述备矣。然则北通巫峡，南极潇湘，迁客骚人，多会于此，览物之情，得无异乎？
+"""
+        print(stringB)
+        
+        let a = ["1", "2", "3"]
+        print("拼接字符串:", a.joined(separator: "-"))
+        let s = " / 2 3 4 ? / "
+        print("空格替换成-:", s.replacingOccurrences(of: " ", with: "-"))
+        print("空格过滤掉:", s.replacingOccurrences(of: " ", with: ""))
+        print("去掉首尾空格:", s.trimmingCharacters(in: .whitespaces))
+        print("分割:", s.components(separatedBy: "/"))
+
+        for c in mutableString {
+            print(c)
+        }
+        print(mutableString.count)
+        print(mutableString.utf8.count)
+        print(mutableString.utf16.count)
+        
+        let stringC = "<<<Hello>>>"
+        let indexStartOfText = stringC.index(stringC.startIndex, offsetBy:3)
+        let indexEndOfText = stringC.index(stringC.endIndex, offsetBy:-3)
+        
+        let subString1 = stringC[indexStartOfText...] // "Hello>>>"
+        let subString2 = stringC[..<indexEndOfText]  // "<<<Hello"
+        let subString3 = stringC[indexStartOfText..<indexEndOfText] // "Hello"
+        print(subString1 + "\n"  + subString2 + "\n" + subString3)
+        mutableString.append("F")
+        //数组///////////////////////////////////////////////////////////////////////////
+        var intArr:Array = [0,2,3]
+        intArr.insert(1, at: 1)
+        for number in intArr {
+            print(number)
+        }
+//        let someArray = [Any]()
+        var someArray = [Any](repeating: 0, count: 10)
+        var intArray = [Int].init(repeating: 0, count: 1)
+        
+        intArray.append(3)
+        intArray.append(5)
+        intArray[intArray.count - 1] = 1
+        intArray.remove(at: 2)
+        let firstInt = intArray.first
+        intArray += [30]
+        for (index,item) in intArray.enumerated() {
+            print("第\(index)个元素是\(item)")
+        }
+        let intArrayB = [Int](repeating: 0, count: 10)
+        intArray += intArrayB
+        let arrayC = intArray + intArrayB
+        print(intArray)
+    }
+    private func initNavBar (){
+        let titleView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 136, height: 44))
+        titleView.backgroundColor = UIColor.red
+        self.navigationItem.titleView = titleView
         
     }
-    
     private func initSubView() {
         let view :UIView = UIView(frame:CGRect.init(x: 20, y: 100, width: SCREEN_WIDTH, height: SCREEN_HEIGHT));
         view.frame = CGRect.init(x: 30, y: 120, width: SCREEN_WIDTH-60, height: 50);

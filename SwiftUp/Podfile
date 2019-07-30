@@ -9,4 +9,5 @@ target 'SwiftUp' do
 
   # Pods for SwiftUp
   pod 'MJRefresh'
+  pod 'SnapKit'
 end
