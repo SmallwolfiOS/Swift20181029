@@ -17,7 +17,7 @@ class ViewController3: UIViewController,UITableViewDelegate,UITableViewDataSourc
 
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
-        self .createTableView()
+        createTableView()
     }
     
     

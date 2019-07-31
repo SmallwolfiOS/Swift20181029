@@ -146,7 +146,88 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         intArray += intArrayB
         let arrayC = intArray + intArrayB
         print(intArray)
+        
+        //字典///////////////////////////////////////////////////////////////////////////
+        var mutableDict:[Int:String] = [1:"One",2:"Two",3:"Three"]
+        mutableDict[1] = "four"
+        let oldValue = mutableDict.updateValue("new One", forKey: 1)
+        let removeValue = mutableDict.removeValue(forKey: 2)
+        print(mutableDict)
+        
+        print(testFunc(paramter: "name"))
+        print(testFunc1(firstName: "ma", lastName: "haiping"))
+        print(tupleFunc(array: [1,3,5,20,8,9]).min )
+        
+        var x = 1 ,y = 5
+        swapTwoInts(&x, &y)
+        print("x 现在的值 \(x), y 现在的值 \(y)")
+        let addition: (Int, Int) -> Int = sum
+        print("输出结果: \(addition(40, 89))")
+        
+        
+        enum DaysOfWeek {
+            case Sunday
+            case Monday
+            case TUESDAY
+            case WEDNESDAY
+            case THURSDAY
+            case FRIDAY
+            case Saturday
+        }
+        var weekDay = DaysOfWeek.TUESDAY
+        weekDay = .THURSDAY
+        switch weekDay {
+            case .Sunday:
+                print("星期日")
+            case .Monday:
+                print("星期一")
+            case .TUESDAY:
+                print("星期二")
+            case .WEDNESDAY:
+                print("星期三")
+            case .THURSDAY:
+                print("星期四")
+            case .FRIDAY:
+                print("星期五")
+            case .Saturday:
+                print("星期六")
+        }
+        enum Month: Int {
+            case January = 1, February, March, April, May, June, July, August, September, October, November, December
+        }
+        
+        let yearMonth = Month.May.rawValue
+        print("数字月份为: \(yearMonth)。")
     }
+    func testFunc(paramter:String) -> String {
+        return(paramter)
+    }
+    func testFunc1(firstName:String,lastName:String) -> String {
+        return("myName is " + firstName + lastName);
+    }
+    func tupleFunc(array:[Int]) -> (min:Int,Max:Int) {
+        var currentMin = array[0]
+        var currentMax = array[0]
+        for value in array {
+            if value < currentMin{
+                currentMin = value
+            }else if value > currentMax{
+                currentMax = value
+            }
+        }
+        return(currentMin,currentMax)
+    }
+    func swapTwoInts(_ a: inout Int, _ b: inout Int) {
+        let temporaryA = a
+        a = b
+        b = temporaryA
+    }
+    func sum(a: Int, b: Int) -> Int {
+        return a + b
+    }
+    
+    
+    
     private func initNavBar (){
         let titleView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 136, height: 44))
         titleView.backgroundColor = UIColor.red
