@@ -198,6 +198,24 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         
         let yearMonth = Month.May.rawValue
         print("数字月份为: \(yearMonth)。")
+        
+        class father {
+            func show() {
+                print("这是父类")
+            }
+        }
+        class son{
+            func show() {
+                print("这是子类")
+            }
+        }
+        
+        let superClass = father();
+        superClass.show()
+        let subClass = son()
+        subClass.show()
+        
+        
     }
     func testFunc(paramter:String) -> String {
         return(paramter)
