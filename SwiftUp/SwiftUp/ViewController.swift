@@ -204,8 +204,9 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
                 print("这是父类")
             }
         }
-        class son{
-            func show() {
+        class son:father{
+           override func show() {
+                super.show()//这样调用父类的方法 
                 print("这是子类")
             }
         }
