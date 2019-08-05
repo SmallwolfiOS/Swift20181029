@@ -18,8 +18,14 @@ class ViewController3: UIViewController,UITableViewDelegate,UITableViewDataSourc
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
         createTableView()
+        
+        let swipeGes = UISwipeGestureRecognizer.init(target: self, action: #selector(dismissVC))
+        swipeGes.direction = .right
+        self.view.addGestureRecognizer(swipeGes)
     }
-    
+    @objc func dismissVC(){
+        self .dismiss(animated: true, completion: nil)
+    }
     
     func createTableView()  {
         let tableView = UITableView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: SCREEN_WIDTH, height: SCREEN_HEIGHT)), style: UITableView.Style.plain)

@@ -209,12 +209,41 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
                 super.show()//这样调用父类的方法 
                 print("这是子类")
             }
+            func showTime() {
+                let dateFormatter = DateFormatter()
+                let timeZone = TimeZone.init(identifier: "Asia/Beijing")
+                dateFormatter.timeZone = timeZone
+                dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+                dateFormatter.dateStyle = .medium
+                
+                /*
+                注释: (timeStyle)时间格式 | (dateStyle)日期格式
+                DateFormatter.Style.none
+                空白的，什么都不显示
+                DateFormatter.Style.short
+                例如：下午3:00 | 18/5/12
+                DateFormatter.Style.medium
+                例如：下午3:00:00 | 2018年5月12日
+                DateFormatter.Style.long
+                例如：GMT +8下午3:00:00 | 2018年5月12日
+                DateFormatter.Style.full
+                例如：中国标准时间下午3:00:00 | 2018年5月12日 星期日
+                formatter.timeStyle = DateFormatter.Style.full//时间格式
+                formatter.dateStyle = DateFormatter.Style.long//ss//日期格式
+                */
+                let localString = dateFormatter.string(from: Date())
+                print("当前时间是---\(localString)")
+            }
+            deinit {
+                print("子类释放了")
+            }
         }
         
         let superClass = father();
         superClass.show()
         let subClass = son()
         subClass.show()
+        subClass.showTime()
         
         
     }
