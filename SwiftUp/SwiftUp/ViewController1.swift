@@ -12,6 +12,7 @@ protocol Vc1Delegate:class {//添加class是为了让代理变weak
 }
 class ViewController1: UIViewController {
     var delegate : Vc1Delegate?;
+    let userNameTf :UITextField = UITextField()
     var littleStr:String = "";
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,13 @@ class ViewController1: UIViewController {
         self.view.backgroundColor = UIColor.white;
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction));
         self.view.addGestureRecognizer(tap);
+        
+        
+//        userNameTf = UITextField.init()
+//        self.view.addSubview(userNameTf)
+        
+        
+        
     }
     @objc func tapAction(){
         self.delegate?.doWhatIWhatYouDo(text:"这就是 传入的有名字的参数");
