@@ -332,7 +332,7 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         
         let vc = ViewController2();
         vc.delegate = self;
-        self.present(vc, animated: true, completion: nil);()
+        self.present(vc, animated: true, completion: nil);
         
         
     }
@@ -351,6 +351,8 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
     }
     @objc func imageViewClick(tap:UITapGestureRecognizer){
         print("手势点击了图片\(String(describing: tap.view?.tag))");
+        let vc = AudioViewController();
+        self.present(vc, animated: true, completion: nil);
     }
 }
 
