@@ -294,13 +294,18 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         view.layer.borderWidth = 1.0;
         view.layer.cornerRadius = 25;
         view.layer.masksToBounds = true;
+        view.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action:#selector(redViewTapAction)));
         self.view.addSubview(view);
+    }
+    @objc private func redViewTapAction(){
+        print("tap了红色的视图")
     }
     private func setupButton(){
         let btn = UIButton(frame: CGRect.init(x: 30, y:190, width: SCREEN_WIDTH-60, height:  50));
         btn.backgroundColor = UIColor.blue;
         btn.setTitle("按钮的标题", for: UIControl.State.normal);
         btn.addTarget(self, action:#selector(buttonClick) , for: UIControl.Event.touchUpInside);
+        btn.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(button1Click)));
         self.view.addSubview(btn);
         
         let btn1 = UIButton(frame: CGRect.init(x: 30, y:270, width: SCREEN_WIDTH-60, height:  50));
@@ -320,9 +325,9 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         self.present(vc, animated: true, completion: nil);()
     }
     @objc func button1Click(btn:UIButton){
-        print(btn.tag);
+//        print(btn.tag);
         print("这是点击了带参数的button");
-        print("这是点击了带参数的button,butto的tag是\(btn.tag)",btn.tag);//哈哈哈，这样也可以，居然可以打印
+//        print("这是点击了带参数的button,butto的tag是\(btn.tag)",btn.tag);//哈哈哈，这样也可以，居然可以打印
         //这是点击了带参数的button,butto的tag是100 100
         
         let vc = ViewController2();
