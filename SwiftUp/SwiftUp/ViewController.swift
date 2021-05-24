@@ -31,7 +31,7 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         initImageView();
         
         normalTest()
-        
+        debugPrint("\(ViewController.self)")
         
     }
     private func normalTest(){
