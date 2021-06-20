@@ -16,6 +16,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        var a = 3;
+        a += 1;
+        print(a)
+        var b :Optional <Int>
+        b = 100;
+        print(b!);
+        
+        
+        var string = "String enable"
+        string = "1"
+        let myString = String("MyString Enable")
+        print("\(string + myString)")
+        let newString = string + myString
+        for ch in newString {// 正序遍历
+            print(ch)
+        }
+        for ch in newString.reversed(){
+            print(ch)
+        }
+        for i in 0..<newString.count{
+            let ch: Character = newString[newString.index(newString.startIndex, offsetBy: i)]
+            print(ch)
+        }
+        
+        for (i, ch) in newString.enumerated(){
+            print(ch)
+        }
+        var tmp : Array = Array.init(repeating: 3, count: 5)
+        tmp.remove(at: 1)
+        print( tmp.enumerated())
+        
+        for t in tmp.enumerated(){
+            guard t.offset == 2 else {
+                continue
+            }
+            tmp.remove(at: t.offset)
+        }
+        let tmpArr : Array = [1,2,3,4,5]
+        let rrr = 3
+        let m = tmpArr.reduce(into:rrr ) { (resault, xxx) in
+            print(resault)
+            resault += xxx
+        }
+
+        let n = tmpArr.reduce("-") { (Result, next) -> String in
+            print(Result)
+            return Result + String(next)
+            print(Result)
+        }
+        
         return true
     }
 
