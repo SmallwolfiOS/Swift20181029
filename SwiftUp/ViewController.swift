@@ -32,7 +32,7 @@ class ViewController: UIViewController ,Vc1Delegate,Vc2Protocol{
         
         normalTest()
         
-        
+        sendNtf()
     }
     private func normalTest(){
         let laugh = "哈哈哈"
