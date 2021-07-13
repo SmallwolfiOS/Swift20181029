@@ -26,7 +26,7 @@ extension ViewController{
                 let userInfo = notification.userInfo
                 print(userInfo ?? "")
                 return userInfo?["data"] as! Data
-            }.
+            }
             
             
 //            var test = MagicTrick()

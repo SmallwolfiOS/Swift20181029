@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 protocol Vc1Delegate:class {//添加class是为了让代理变weak
     func doWhatIWhatYouDo(text:String)
 }
@@ -24,6 +26,15 @@ class ViewController1: UIViewController {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction));
         self.view.addGestureRecognizer(tap);
         
+        let bag = DisposeBag()
+        var button = UIButton.init()
+        
+            button.rx.tap
+                .subscribe(onNext: { [weak self] in
+                    print("点了,小鸡炖蘑菇")
+                    self?.view.backgroundColor = UIColor.orange
+                })
+                .disposed(by: DisposeBag.init())
         
 //        userNameTf = UITextField.init()
 //        self.view.addSubview(userNameTf)
